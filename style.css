@@ -273,3 +273,33 @@ body{
 #admin button:hover{
   transform: translateY(-1px);
 }
+#toast {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%) translateY(20px);
+
+  background: #1d3d50;
+  color: white;
+
+  padding: 14px 18px;
+  border-radius: 999px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  z-index: 99999;
+
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+  transition: 0.3s ease;
+}
+
+#toast.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
