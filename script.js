@@ -31,6 +31,7 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+const auth = getAuth(app);
 
 function showSection(sectionId) {
   const sections = document.querySelectorAll(".page");
@@ -298,54 +299,27 @@ window.changeRenovationPage = changeRenovationPage;
 
 let isAdmin = false;
 
-const admins = [
-  {
-    username: "admin1",
-    password: "admin1",
-    role: "ผู้จัดการ"
-  },
-
-  {
-    username: "admin2",
-    password: "admin2",
-    role: "นิติ 1"
-  },
-
-  {
-    username: "admin3",
-    password: "admin3",
-    role: "นิติ 2"
-  },
-
-  {
-    username: "samaedum_dev",
-    password: "1544",
-    role: "samaedum-support"
-  }
-];
-
-function adminLogin() {
-  const username = document.getElementById("adminUsername").value;
+async function adminLogin() {
+  const email = document.getElementById("adminUsername").value;
   const password = document.getElementById("adminPassword").value;
 
-  const matchedAdmin = admins.find(function(admin) {
-    return admin.username === username && admin.password === password;
-  });
+  try {
+    await signInWithEmailAndPassword(auth, email, password);
 
-  if (matchedAdmin) {
     isAdmin = true;
 
     document.getElementById("adminLoginBox").style.display = "none";
     document.getElementById("adminPanel").style.display = "block";
 
-    // showToast("เข้าสู่ระบบผู้ดูแลสำเร็จ");
+    showToast("เข้าสู่ระบบผู้ดูแลสำเร็จ");
 
     renderAdminAnnouncements();
     renderAdminRepair();
     renderAdminRenovation();
     updateDashboard();
-  } else {
-    showToast("Username หรือ Password ไม่ถูกต้อง");
+
+  } catch (error) {
+    showToast("อีเมลหรือรหัสผ่านไม่ถูกต้อง");
   }
 }
 
