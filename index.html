@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>แสมดำ อัพเดต</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  <body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">หมู่บ้านเอื้ออาทรแสมดำ</div>
+
+    <div class="nav-links">
+      <button onclick="showSection('home')">หน้าหลัก</button>
+      
+      <button onclick="showSection('repair')">แจ้งซ่อม</button>
+      <button onclick="showSection('renovation')">รีโนเวท</button>
+      <button onclick="showSection('tracking')">ติดตามงาน</button>
+      <button onclick="showSection('water')">ชำระค่าน้ำ</button>
+      <button onclick="showSection('contact')">ติดต่อ</button>
+      <button onclick="showSection('admin')">Admin</button>
+    </div>
+  </nav>
+
+
+  <!-- หน้าแต่ละ section -->
+  <section id="water" class="page">
+
+  <h1>ค่าน้ำ / ชำระเงิน</h1>
+
+  <div class="tracking-card">
+
+    <h3>💧 ระบบค่าน้ำหมู่บ้าน</h3>
+
+    <p>
+      ระบบชำระค่าน้ำออนไลน์และใบเสร็จอิเล็กทรอนิกส์
+      กำลังอยู่ระหว่างพัฒนา
+    </p>
+
+    <p>
+      ในอนาคตลูกบ้านจะสามารถ:
+    </p>
+
+    <ul>
+      <li>ตรวจสอบยอดค่าน้ำ</li>
+      <li>อัปโหลดสลิปโอนเงิน</li>
+      <li>ดาวน์โหลดใบเสร็จ PDF</li>
+      <li>ดูประวัติการชำระย้อนหลัง</li>
+    </ul>
+
+  </div>
+
+</section>
+  <main>
+
+<section id="home" class="page active">
+
+  <h1>ยินดีต้อนรับสู่หมู่บ้านเอื้ออาทรแสมดำ</h1>
+
+  <p>ศูนย์กลางข่าวสาร ประกาศ และการติดต่อภายในชุมชน</p>
+  
+<div class="hero-banner"></div>
+  
+  <hr>
+
+  
+  <h2>📢 ประกาศล่าสุด</h2>
+
+  <div id="announcementList"></div>
+
+</section>
+
+    <section id="repair" class="page">
+      <h1>แจ้งซ่อม</h1>
+      <form id="repairForm" class="form-box">
+  <input id="repairName" type="text" placeholder="ชื่อผู้แจ้ง" required>
+  <input id="repairHouse" type="text" placeholder="บ้านเลขที่" required>
+  <input id="repairPhone" type="tel" placeholder="เบอร์โทร" required>
+
+  <select id="repairIssue" required>
+    <option value="">เลือกปัญหา</option>
+    <option value="ไฟฟ้า">ไฟฟ้า</option>
+    <option value="ประปา">ประปา</option>
+    <option value="ถนน/ทางเดิน">ถนน/ทางเดิน</option>
+    <option value="ความปลอดภัย">ความปลอดภัย</option>
+    <option value="อื่น ๆ">อื่น ๆ</option>
+  </select>
+
+  <textarea id="repairDetail" placeholder="รายละเอียดปัญหา" required></textarea>
+
+  <button id="repairSubmitBtn" type="submit">ส่งคำร้องแจ้งซ่อม</button>
+</form>
+    </section>
+
+    <section id="renovation" class="page">
+      <h1>แจ้งรีโนเวท</h1>
+      <form id="renovationForm" class="form-box">
+  <input id="renoName" type="text" placeholder="ชื่อผู้แจ้ง" required>
+  <input id="renoHouse" type="text" placeholder="บ้านเลขที่" required>
+  <input id="renoPhone" type="tel" placeholder="เบอร์โทร" required>
+
+  <select id="renoType" required>
+    <option value="">เลือกประเภทงานรีโนเวท</option>
+    <option value="ทาสีห้อง">ทาสีห้อง</option>
+    <option value="ปูกระเบื้อง / พื้น">ปูกระเบื้อง / พื้น</option>
+    <option value="ติดตั้งแอร์">ติดตั้งแอร์</option>
+    <option value="งานระบบไฟฟ้า/ประปา">งานระบบไฟฟ้า/ประปา</option>
+    <option value="อื่น ๆ">อื่น ๆ</option>
+  </select>
+
+  <label>วันที่เริ่มงาน</label>
+  <input id="renoStart" type="date" required>
+
+  <label>วันที่สิ้นสุดงาน</label>
+  <input id="renoEnd" type="date" required>
+
+  <textarea id="renoDetail" placeholder="รายละเอียดงานรีโนเวท" required></textarea>
+
+  <button id="renovationSubmitBtn" type="submit">
+  ส่งคำร้องรีโนเวท
+</button>
+</form>
+    </section>
+
+    <section id="tracking" class="page">
+      <h1>ติดตามงาน</h1>
+<input
+  id="trackingSearch"
+  type="text"
+  placeholder="ค้นหาเลขติดตาม เช่น R-0001 หรือ N-0001"
+/>
+      <h2>รายการแจ้งซ่อม</h2>
+      <div id="repairTrackingList"></div>
+
+      <h2>รายการรีโนเวท</h2>
+      <div id="renovationTrackingList"></div>
+    </section>
+
+<section id="contact" class="page">
+  <h1>ติดต่อ</h1>
+
+  <div class="tracking-card">
+    <h3>นิติบุคคล</h3>
+    <p><strong>นิติบุคคล</strong></p>
+    <p><a href="tel:0958143756">095-814-3756</a></p>
+    <p><a href="tel:024539885">02-453-9885</a></p>
+  </div>
+
+  <div class="tracking-card">
+    <h3>ผู้จัดการนิติ</h3>
+    <p><strong>คุณริขิต</strong></p>
+    <p><a href="tel:0617034059">061-703-4059</a></p>
+  </div>
+
+  <div class="tracking-card">
+    <h3>เจ้าหน้าที่รักษาความปลอดภัย</h3>
+    <p><strong>คุณกิมฮวด</strong></p>
+    <p><a href="tel:0829922507">082-992-2507</a></p>
+    <p><strong>คุณติก</strong></p>
+    <p><a href="tel:0954937550">095-493-7550</a></p>
+    <p><strong>คุณไกรเดช</strong></p>
+    <p><a href="tel:0626891567">062-689-1567</a></p>
+  </div>
+</section>
+
+</form>
+   <section id="admin" class="page">
+  <h1>Admin Login</h1>
+
+  <div id="adminLoginBox">
+
+  <input id="adminUsername" type="text" placeholder="Username">
+
+  <input id="adminPassword" type="password" placeholder="Password">
+
+  <button onclick="adminLogin()">
+    เข้าสู่ระบบ
+  </button>
+
+  </div>
+
+  <div id="adminPanel" style="display:none;">
+    
+    <h2>ภาพรวมระบบ</h2>
+
+<div class="dashboard-grid">
+  <div class="dashboard-card">
+    <h3 id="totalRepairCount">0</h3>
+    <p>แจ้งซ่อมทั้งหมด</p>
+  </div>
+
+  <div class="dashboard-card">
+    <h3 id="totalRenovationCount">0</h3>
+    <p>รีโนเวททั้งหมด</p>
+  </div>
+
+  <div class="dashboard-card">
+    <h3 id="doneCount">0</h3>
+    <p>งานเสร็จสิ้น / อนุมัติแล้ว</p>
+  </div>
+
+  <div class="dashboard-card">
+    <h3 id="pendingCount">0</h3>
+    <p>งานรอดำเนินการ</p>
+  </div>
+</div>
+
+    <h2>เพิ่มประกาศ</h2>
+
+    <form id="announcementForm" class="form-box">
+      <input id="announceTitle" type="text" placeholder="หัวข้อประกาศ" required>
+      <input id="announceDate" type="date" required>
+      <textarea id="announceDetail" placeholder="รายละเอียดประกาศ" required></textarea>
+      <button id="announcementSubmitBtn" type="submit">
+  เพิ่มประกาศ
+</button>
+    </form>
+
+    <h2>รายการประกาศ</h2>
+    <div id="adminAnnouncementList"></div>
+
+    <h2>จัดการแจ้งซ่อม</h2>
+    <div id="adminRepairList"></div>
+
+    <h2>จัดการรีโนเวท</h2>
+    <div id="adminRenovationList"></div>
+
+  </div>
+</section>
+
+  </main>
+
+</body>
+<div id="toast"></div>
+    <script type="module" src="./script.js"></script>
+
+  </body>
+  
+</html>
