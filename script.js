@@ -692,7 +692,7 @@ function showToast(message) {
   toast.textContent = message;
   toast.classList.add("show");
 
-  setTimeout(() => {
+  setTimeout(function() {
     toast.classList.remove("show");
   }, 2500);
 }
