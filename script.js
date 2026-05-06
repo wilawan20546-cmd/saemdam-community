@@ -13,6 +13,12 @@ import {
   orderBy
 } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
 
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  signOut
+} from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
+
 const firebaseConfig = {
   apiKey: "AIzaSyDz0iJHJPZ7i7ZbQlHK9W9xcsmQU8sIS1c",
   authDomain: "update-4a1f3.firebaseapp.com",
