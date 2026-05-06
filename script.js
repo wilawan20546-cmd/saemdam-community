@@ -332,7 +332,7 @@ function adminLogin() {
     document.getElementById("adminLoginBox").style.display = "none";
     document.getElementById("adminPanel").style.display = "block";
 
-    showToast("เข้าสู่ระบบสำเร็จ (" + matchedAdmin.role + ")");
+    // showToast("เข้าสู่ระบบผู้ดูแลสำเร็จ");
 
     renderAdminAnnouncements();
     renderAdminRepair();
